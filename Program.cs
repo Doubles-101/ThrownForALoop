@@ -6,54 +6,70 @@ List<Product> products = new List<Product>()
     new Product()
     { 
         Name = "Football", 
-        Price = 15, 
+        Price = 15.00M,
         Sold = false,
         StockDate = new DateTime(2022, 10, 20),
-        ManufactureYear = 2010
+        ManufactureYear = 2010, 
+        Condition = 4.2
     },
     new Product() 
     { 
         Name = "Hockey Stick", 
-        Price = 12, 
+        Price = 12.69M, 
         Sold = false,
         StockDate = new DateTime(2022, 10, 20),
-        ManufactureYear = 2010
+        ManufactureYear = 2010, 
+        Condition = 4.2
     },
     new Product()
     {
         Name = "Cheese",
-        Price = 4,
+        Price = 4.99M,
         Sold = true,
         StockDate = new DateTime(2022, 10, 20),
-        ManufactureYear = 2010
+        ManufactureYear = 2010, 
+        Condition = 4.2
     },
     new Product()
     {
         Name = "Coal",
-        Price = 1,
+        Price = 1.00M,
         Sold = false,
         StockDate = new DateTime(2022, 10, 20),
-        ManufactureYear = 2010
+        ManufactureYear = 2010, 
+        Condition = 4.2
     },
     new Product()
     {
         Name = "Bat",
-        Price = 18,
+        Price = 18.55M,
         Sold = false,
         StockDate = new DateTime(2022, 10, 20),
-        ManufactureYear = 2010
+        ManufactureYear = 2010, 
+        Condition = 4.2
     },
     new Product()
     {
         Name = "Baseball",
-        Price = 10,
+        Price = 10.00M,
         Sold = false,
         StockDate = new DateTime(2022, 10, 20),
-        ManufactureYear = 2010
+        ManufactureYear = 2010, 
+        Condition = 4.2
     }
 };
 
 Console.WriteLine(greeting);
+
+decimal totalValue = 0.0M;
+foreach (Product product in products)
+{
+    if (!product.Sold)
+    {
+        totalValue += product.Price;
+    }
+}
+Console.WriteLine($"Total inventory value: ${totalValue}");
 
 Console.WriteLine("Products:");
 
@@ -79,4 +95,5 @@ TimeSpan timeInStock = now - chosenProduct.StockDate;
 Console.WriteLine(@$"You chose: 
 {chosenProduct.Name}, which costs {chosenProduct.Price} dollars.
 It is {now.Year - chosenProduct.ManufactureYear} years old. 
+It is {chosenProduct.Condition} condition.
 It {(chosenProduct.Sold ? "is not available." : $"has been in stock for {timeInStock.Days} days.")}");
